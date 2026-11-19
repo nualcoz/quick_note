@@ -1,0 +1,706 @@
+/* =============================================================================
+   QuickNote – Stationery Checklist Paper Stylesheet
+   Bảng màu chuẩn Figma:
+   - Nền bàn làm việc (Desk):      #F1EFEA
+   - Nền tờ giấy kem ấm (Paper):   #F7F3E6
+   - Viền ấm (Warm Border):        #DCD7CB
+   - Xanh xám (Slate):             #52758C
+   - Cam đất (Terracotta):         #C46D53
+   - Nền cam nhạt (Light Terra):   #F6E8E2
+   - Dòng kẻ ngang (Ruled Line):   #8BA4B2
+   - Chữ mực đen (Ink):            #2C2F33
+   - Màu xóa (Danger):             #C74741
+   ============================================================================= */
+
+:root {
+  --bg-desk: #F1EFEA;
+  --bg-paper: #F7F3E6;
+  --border-warm: #DCD7CB;
+  --slate: #52758C;
+  --terracotta: #C46D53;
+  --terracotta-soft: #F6E8E2;
+  --ruled-line: #8BA4B2;
+  --ink: #2C2F33;
+  --ink-muted: #8C8F94;
+  --danger: #C74741;
+  --paper-shadow: 4px 8px 18px rgba(38, 33, 26, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-desk);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+/* =============================================================================
+   1. Tờ giấy Checklist dùng chung (.paper-sheet)
+   ============================================================================= */
+.paper-sheet {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-warm);
+  border-radius: 4px;
+  box-shadow: var(--paper-shadow);
+}
+
+/* =============================================================================
+   2. Màn hình Bìa sổ Đăng nhập / Đăng ký (Frame 1 & Frame 2)
+   ============================================================================= */
+.auth-page {
+  min-height: 100vh;
+  background: var(--bg-desk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+}
+
+.login-sheet {
+  width: 100%;
+  max-width: 380px;
+  padding: 34px 28px 24px;
+  text-align: center;
+}
+
+.cover-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate);
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.cover-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 2.2px;
+  margin: 4px 0;
+}
+
+.cover-sub {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  letter-spacing: 1.6px;
+  margin-bottom: 10px;
+}
+
+.terra-divider {
+  width: 140px;
+  height: 1.5px;
+  background: var(--terracotta);
+  margin: 0 auto 22px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate);
+  letter-spacing: 0.7px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-warm);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--ink);
+  background: #FFFFFF;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 2px rgba(196, 109, 83, 0.15);
+}
+
+.input.input-error,
+.input.error {
+  border-color: var(--danger);
+  background: #FFF9F8;
+}
+
+.btn-terra {
+  width: 100%;
+  background: var(--terracotta);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 11px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-terra:hover:not(:disabled) {
+  background: #B35E45;
+}
+
+.btn-terra:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  background: #FDF0EF;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.auth-switch {
+  font-size: 12px;
+  color: var(--slate);
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+.auth-switch a,
+.auth-switch button {
+  color: var(--terracotta);
+  font-weight: 700;
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--terracotta);
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+}
+
+.stamp-foot,
+.cover-footer {
+  font-size: 9.5px;
+  color: var(--ruled-line);
+  letter-spacing: 1.8px;
+  margin-top: 18px;
+  font-weight: 700;
+}
+
+/* =============================================================================
+   3. Màn hình Trang chủ – Lưới Tờ Ghi chú Checklist (Frame 3)
+   ============================================================================= */
+.dashboard-page,
+.notes-page {
+  min-height: 100vh;
+  background: var(--bg-desk);
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E0DCD3;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.logo-q {
+  width: 30px;
+  height: 30px;
+  background: var(--slate);
+  color: var(--bg-paper);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: 'Georgia', serif;
+}
+
+.brand-main {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--ink);
+}
+
+.brand-sub {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--slate);
+  letter-spacing: 1.4px;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-warm);
+  background: #FFFFFF;
+  color: var(--ink);
+  padding: 7px 13px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--bg-desk);
+  border-color: #C7C0B2;
+}
+
+.dash-body,
+.main-content {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 26px 32px 48px;
+  flex: 1;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.left-tools,
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.search-box {
+  width: 310px;
+  max-width: 100%;
+  background: #FFFFFF;
+  border: 1px solid var(--border-warm);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input.search-box:focus,
+.search-box:focus-within {
+  border-color: var(--slate);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  color: var(--ink);
+  background: transparent;
+}
+
+.pill {
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--border-warm);
+  background: #FFFFFF;
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.pill:hover {
+  border-color: var(--slate);
+}
+
+.pill.active {
+  background: var(--slate);
+  color: #FFFFFF;
+  border-color: var(--slate);
+}
+
+.btn-create {
+  background: var(--terracotta);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-create:hover {
+  background: #B35E45;
+}
+
+/* Lưới 3 cột các tờ ghi chú */
+.sheets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .sheets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sheets-grid {
+    grid-template-columns: 1fr;
+  }
+  .topbar, .dash-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.note-sheet {
+  padding: 20px 20px 14px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.note-sheet:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 12px 22px rgba(38, 33, 26, 0.18);
+}
+
+.cat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--slate);
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+
+.cat-tag {
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: var(--slate);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+.cat-tag.active {
+  color: var(--terracotta);
+  background: var(--terracotta-soft);
+  border: 1px solid var(--terracotta);
+  font-weight: 700;
+}
+
+.sheet-title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  word-break: break-word;
+}
+
+.sheet-underline {
+  width: 145px;
+  height: 1.5px;
+  background: var(--terracotta);
+  margin: 0 auto 10px;
+}
+
+.ruled-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ruled-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6.5px 2px 5.5px;
+  border-bottom: 1px solid rgba(139, 164, 178, 0.65);
+  min-height: 32px;
+  font-size: 12.5px;
+  color: var(--ink);
+}
+
+.ruled-row.clickable,
+.ruled-row[data-item-index] {
+  cursor: pointer;
+}
+
+.ruled-row.done span.txt,
+.ruled-row.done .txt,
+.ruled-row .txt.done {
+  text-decoration: line-through;
+  color: #8D9094;
+}
+
+.circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.4px solid var(--terracotta);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.12s ease;
+}
+
+.circle.checked {
+  background: var(--terracotta-soft);
+}
+
+.circle.checked::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--terracotta);
+}
+
+.sheet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  font-size: 11.5px;
+}
+
+.act-edit,
+.act-del {
+  background: none;
+  border: none;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.act-edit {
+  color: var(--slate);
+}
+
+.act-edit:hover {
+  text-decoration: underline;
+}
+
+.act-stamp {
+  font-size: 9px;
+  color: var(--slate);
+  letter-spacing: 1.6px;
+  font-weight: 700;
+}
+
+.act-del {
+  color: var(--danger);
+}
+
+.act-del:hover {
+  text-decoration: underline;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--slate);
+}
+
+/* =============================================================================
+   4. Modal Tạo / Sửa & Xác nhận xóa (Frame 4)
+   ============================================================================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(38, 33, 26, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-sheet {
+  width: 100%;
+  max-width: 430px;
+  padding: 20px 22px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--ink);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.cat-pills-select {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.cat-pills-select .cat-tag {
+  padding: 5px 12px;
+  border: 1px solid var(--border-warm);
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.cat-pills-select .cat-tag.active {
+  color: var(--terracotta);
+  background: var(--terracotta-soft);
+  border-color: var(--terracotta);
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate);
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.add-line {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--terracotta);
+  margin-top: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.add-line:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.add-line:disabled {
+  color: var(--ink-muted);
+  cursor: not-allowed;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.btn-sm-terra {
+  background: var(--terracotta);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-sm-terra:hover:not(:disabled) {
+  background: #B35E45;
+}
+
+.btn-sm-terra:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn-sm-danger {
+  background: var(--danger);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-sm-danger:hover:not(:disabled) {
+  background: #B03A35;
+}
