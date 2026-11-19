@@ -290,16 +290,7 @@
     users.push(newUser);
     writeJson(STORAGE_KEYS.USERS, users);
 
-    // Khởi tạo 3 tờ ghi chú mẫu cho tài khoản mới để sổ luôn sẵn sàng trải nghiệm
-    const allNotes = readJson(STORAGE_KEYS.NOTES, []);
-    const starterNotes = getInitialDemoNotes(newUser.id).map((n) => ({
-      ...n,
-      id: generateUuid(),
-      user_id: newUser.id,
-      updated_at: new Date().toISOString()
-    }));
-    writeJson(STORAGE_KEYS.NOTES, [...starterNotes, ...allNotes]);
-
+    // Tài khoản mới đăng ký bắt đầu với Trang chủ trống (0 tờ ghi chú)
     const sessionUser = {
       id: newUser.id,
       fullName: newUser.fullName,
@@ -327,7 +318,7 @@
     const activeUserId = currentUser ? currentUser.id : DEMO_USER.id;
 
     const allNotes = readJson(STORAGE_KEYS.NOTES, []);
-    let userNotes = allNotes.filter((n) => !n.user_id || n.user_id === activeUserId);
+    let userNotes = allNotes.filter((n) => n && n.user_id === activeUserId);
 
     const rawCategory = filters && filters.category ? String(filters.category).trim() : '';
     if (rawCategory && rawCategory.toUpperCase() !== 'ALL') {

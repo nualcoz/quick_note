@@ -812,12 +812,20 @@
     const gridEl = state.container.querySelector('.sheets-grid');
     if (gridEl) {
       if (filteredNotes.length === 0) {
-        gridEl.innerHTML = `
-          <div class="paper-sheet empty-sheets-box">
-            <div style="font-weight:600;font-size:14px;margin-bottom:6px;">Không tìm thấy tờ ghi chú nào phù hợp</div>
-            <div style="font-size:12px;color:#8C8F94;">Hãy thử đổi bộ lọc nhóm, từ khóa tìm kiếm hoặc bấm "+ Tạo tờ ghi chú".</div>
-          </div>
-        `;
+        const isNewEmptyAccount = allNotes.length === 0;
+        gridEl.innerHTML = isNewEmptyAccount
+          ? `
+            <div class="paper-sheet empty-sheets-box" data-empty-account="true">
+              <div style="font-weight:600;font-size:14px;margin-bottom:6px;color:#52758C;">Sổ ghi chú của bạn đang trống</div>
+              <div style="font-size:12px;color:#8C8F94;">Chào mừng tài khoản mới! Hãy bấm nút <strong>"+ Tạo tờ ghi chú"</strong> ở góc phải để viết tờ ghi chú đầu tiên.</div>
+            </div>
+          `
+          : `
+            <div class="paper-sheet empty-sheets-box">
+              <div style="font-weight:600;font-size:14px;margin-bottom:6px;">Không tìm thấy tờ ghi chú nào phù hợp</div>
+              <div style="font-size:12px;color:#8C8F94;">Hãy thử đổi bộ lọc nhóm, từ khóa tìm kiếm hoặc bấm "+ Tạo tờ ghi chú".</div>
+            </div>
+          `;
       } else {
         gridEl.innerHTML = filteredNotes.map(renderNoteSheetHtml).join('');
       }
@@ -842,15 +850,23 @@
     const allNotes = fetchAllUserNotes();
     const filteredNotes = fetchFilteredNotes();
 
+    const isNewEmptyAccount = allNotes.length === 0;
     const sheetsHtml =
       filteredNotes.length > 0
         ? filteredNotes.map(renderNoteSheetHtml).join('')
-        : `
-          <div class="paper-sheet empty-sheets-box">
-            <div style="font-weight:600;font-size:14px;margin-bottom:6px;">Không tìm thấy tờ ghi chú nào phù hợp</div>
-            <div style="font-size:12px;color:#8C8F94;">Hãy thử đổi bộ lọc nhóm, từ khóa tìm kiếm hoặc bấm "+ Tạo tờ ghi chú".</div>
-          </div>
-        `;
+        : isNewEmptyAccount
+          ? `
+            <div class="paper-sheet empty-sheets-box" data-empty-account="true">
+              <div style="font-weight:600;font-size:14px;margin-bottom:6px;color:#52758C;">Sổ ghi chú của bạn đang trống</div>
+              <div style="font-size:12px;color:#8C8F94;">Chào mừng tài khoản mới! Hãy bấm nút <strong>"+ Tạo tờ ghi chú"</strong> ở góc phải để viết tờ ghi chú đầu tiên.</div>
+            </div>
+          `
+          : `
+            <div class="paper-sheet empty-sheets-box">
+              <div style="font-weight:600;font-size:14px;margin-bottom:6px;">Không tìm thấy tờ ghi chú nào phù hợp</div>
+              <div style="font-size:12px;color:#8C8F94;">Hãy thử đổi bộ lọc nhóm, từ khóa tìm kiếm hoặc bấm "+ Tạo tờ ghi chú".</div>
+            </div>
+          `;
 
     state.container.innerHTML = `
       <div class="qn-dashboard-wrap">
