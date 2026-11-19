@@ -816,8 +816,10 @@
         gridEl.innerHTML = isNewEmptyAccount
           ? `
             <div class="paper-sheet empty-sheets-box" data-empty-account="true">
-              <div style="font-weight:600;font-size:14px;margin-bottom:6px;color:#52758C;">Sổ ghi chú của bạn đang trống</div>
-              <div style="font-size:12px;color:#8C8F94;">Chào mừng tài khoản mới! Hãy bấm nút <strong>"+ Tạo tờ ghi chú"</strong> ở góc phải để viết tờ ghi chú đầu tiên.</div>
+              <div style="font-weight:700;font-size:14px;letter-spacing:1px;margin-bottom:8px;color:#52758C;">SỔ GHI CHÚ CỦA BẠN ĐANG TRỐNG</div>
+              <div style="width:120px;height:1.5px;background:#C46D53;margin:0 auto 12px;"></div>
+              <div style="font-size:12.5px;color:#8C8F94;max-width:440px;margin:0 auto;line-height:1.5;">Chào mừng tài khoản mới! Hiện chưa có tờ ghi chú nào trên bàn làm việc.<br/>Hãy bấm nút <strong>"+ Tạo tờ ghi chú"</strong> ở góc phải để viết tờ ghi chú đầu tiên.</div>
+              <button type="button" class="btn-create" data-action="open-create" style="margin-top:14px;">+ Tạo tờ ghi chú đầu tiên</button>
             </div>
           `
           : `
@@ -857,8 +859,10 @@
         : isNewEmptyAccount
           ? `
             <div class="paper-sheet empty-sheets-box" data-empty-account="true">
-              <div style="font-weight:600;font-size:14px;margin-bottom:6px;color:#52758C;">Sổ ghi chú của bạn đang trống</div>
-              <div style="font-size:12px;color:#8C8F94;">Chào mừng tài khoản mới! Hãy bấm nút <strong>"+ Tạo tờ ghi chú"</strong> ở góc phải để viết tờ ghi chú đầu tiên.</div>
+              <div style="font-weight:700;font-size:14px;letter-spacing:1px;margin-bottom:8px;color:#52758C;">SỔ GHI CHÚ CỦA BẠN ĐANG TRỐNG</div>
+              <div style="width:120px;height:1.5px;background:#C46D53;margin:0 auto 12px;"></div>
+              <div style="font-size:12.5px;color:#8C8F94;max-width:440px;margin:0 auto;line-height:1.5;">Chào mừng tài khoản mới! Hiện chưa có tờ ghi chú nào trên bàn làm việc.<br/>Hãy bấm nút <strong>"+ Tạo tờ ghi chú"</strong> ở góc phải để viết tờ ghi chú đầu tiên.</div>
+              <button type="button" class="btn-create" data-action="open-create" style="margin-top:14px;">+ Tạo tờ ghi chú đầu tiên</button>
             </div>
           `
           : `
